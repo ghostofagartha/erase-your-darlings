@@ -7,7 +7,7 @@
     ./modules/performance.nix
     ./modules/boot.nix
     ./modules/desktop.nix
-    # ./modules/virtualization.nix
+    ./modules/virtualization.nix
     ./modules/users.nix
     ./modules/nix-ld.nix
   ];

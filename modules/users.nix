@@ -15,25 +15,25 @@
       wineWowPackages.stable
 
       # VMs
-      # qemu
-      # virt-manager
-      # virt-viewer
-      # spice spice-gtk
-      # spice-protocol
-      # virtio-win
-      # win-spice
+      qemu
+      virt-manager
+      virt-viewer
+      spice spice-gtk
+      spice-protocol
+      virtio-win
+      win-spice
 
       # Browser
       tor-browser
 
       # Programming
-      # jdk25_headless
+      jdk25_headless
       python3
       rustup
       gcc
-      # jetbrains.idea
-      # jetbrains.pycharm
-      # jetbrains.rust-rover
+      jetbrains.idea
+      jetbrains.pycharm
+      jetbrains.rust-rover
 
       # Neovim (Lazyvim)
       neovim
