@@ -12,7 +12,7 @@
     
     packages = with pkgs; [
       # Tools
-      # wineWowPackages.stable
+      wineWowPackages.stable
 
       # VMs
       # qemu
@@ -24,54 +24,54 @@
       # win-spice
 
       # Browser
-      # tor-browser
+      tor-browser
 
       # Programming
       # jdk25_headless
-      # python3
-      # rustup
-      # gcc
+      python3
+      rustup
+      gcc
       # jetbrains.idea
       # jetbrains.pycharm
       # jetbrains.rust-rover
 
       # Neovim (Lazyvim)
       neovim
-      # gcc
-      # nodejs
-      # npm-check
-      # ripgrep
+      gcc
+      nodejs
+      npm-check
+      ripgrep
 
       # Cyber Security
-      # nmap
-      # openvpn
-      # theharvester
-      # sqlmap
-      # torsocks
-      # wireshark-qt
-      # burpsuite
-      # macchanger
-      # firejail
+      nmap
+      openvpn
+      theharvester
+      sqlmap
+      torsocks
+      wireshark-qt
+      burpsuite
+      macchanger
+      firejail
       
       # Media
-      # pear-desktop
+      pear-desktop
 
       # Documents
-      # onlyoffice-desktopeditors
-      # obsidian
+      onlyoffice-desktopeditors
+      obsidian
 
       # Internet
-      # discord
-      # wasistlos
-      # thunderbird
+      discord
+      wasistlos
+      thunderbird
     ];
   };
 
   # Global Wine Settings
-  # environment.variables = {
-    # WINEARCH = "win64";
-    # WINEPREFIX = "/home/aori/.wine";
-  # };
+  environment.variables = {
+    WINEARCH = "win64";
+    WINEPREFIX = "/home/aori/.wine";
+  };
 
   programs.git = {
     enable = true;
@@ -79,7 +79,7 @@
       user.name = "ghostofagartha";
       user.email = "darkside4464@gmail.com";
       credential.helper = "store --file /persist/etc/nixos/.git-credentials";
-      safe.directory = "/etc/nixos";
+      safe.directory = "/persist/etc/nixos";
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
     };
