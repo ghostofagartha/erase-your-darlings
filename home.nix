@@ -92,12 +92,12 @@
   	    "$mod, Prior, workspace, e-1"
   	    "$mod, Next, workspace, e+1"
 
-	      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+	      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 10%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
 	      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       
-        ", XF86MonBrightnessUp, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) + 0.05\" | bc)"
-        ", XF86MonBrightnessDown, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) - 0.05\" | bc)"
+        ", XF86MonBrightnessUp, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) + 0.1\" | bc)"
+        ", XF86MonBrightnessDown, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) - 0.1\" | bc)"
       ];
       bindl = [
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -160,6 +160,16 @@
       "ctrl+shift+c" = "copy_to_clipboard";
     };
   };
+
+  services.swayidle = {
+      enable = true;
+      events = [
+        {
+          event = "before-sleep";
+          command = "caelestia-shell ipc call lock lock";
+        }
+      ];
+    };
 
   home.packages = with pkgs; [
     home-manager 

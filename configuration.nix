@@ -44,6 +44,16 @@
     nerd-fonts.symbols-only
   ];
 
+  services.logind = {
+    lidSwitch = "suspend";
+    settings = {
+      Login = {
+        LidSwitchIgnoreInhibited = "no";
+        HoldOffTimeoutSec = 10;
+      };
+    };
+  };
+
   # --- NIX MAINTENANCE ---
   nix.gc = {
     automatic = true;
