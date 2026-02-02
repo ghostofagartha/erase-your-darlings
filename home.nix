@@ -8,6 +8,13 @@
   home.username = "aori";
   home.homeDirectory = "/home/aori";
   home.stateVersion = "25.05";
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
   
   programs.git.enable = true;
   programs.caelestia.enable = true;
@@ -18,8 +25,13 @@
       general = {
         gaps_in = 5;
 	gaps_out = 15;
-	broder_size = 2;
+	border_size = 2;
 	layout = "master";
+      };
+      master = {
+	new_status = "master";
+        mfact = 0.5;
+        orientation = "left";
       };
       monitor = ",preferred,auto,1";
       "$mod" = "SUPER";
@@ -31,10 +43,13 @@
         "$mod, E, exec, thunar"
         "$mod, V, togglefloating,"
 	"$mod, F, fullscreen, 0"
+	"$mod, D, fullscreen, 1"
         "$mod, P, pseudo,"
+	"$mod SHIFT, S, movetoworkspace, special"
+        "$mod, S, togglespecialworkspace"
 
         "$mod, Escape, exec, caelestia-shell ipc call drawers toggle \"session\""
-        "$mod, D, exec, caelestia-shell ipc call drawers toggle \"dashboard\""
+        "$mod, N, exec, caelestia-shell ipc call drawers toggle \"dashboard\""
         "$mod, U, exec, caelestia-shell ipc call drawers toggle \"utilities\""
 	"$mod, I, exec, caelestia-shell ipc call controlCenter open"
 	"$mod, SPACE, exec, caelestia-shell ipc call drawers toggle launcher"
