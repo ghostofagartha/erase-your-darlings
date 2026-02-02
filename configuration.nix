@@ -6,6 +6,7 @@
     ./modules/persistence.nix
     ./modules/performance.nix
     ./modules/boot.nix
+    ./modules/swap.nix
     ./modules/desktop.nix
     ./modules/virtualization.nix
     ./modules/users.nix

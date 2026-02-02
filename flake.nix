@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caelestia-shell.url = "github:caelestia-dots/shell";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, caelestia-shell, ... }@inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -22,9 +23,7 @@
             useUserPackages = true;
             users.aori = import ./home.nix;
             backupFileExtension = "backup";
-            extraSpecialArgs = { 
-              inherit inputs;
-            };
+            extraSpecialArgs = { inherit inputs caelestia-shell; };
           };
         }
       ];

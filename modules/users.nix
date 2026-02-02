@@ -42,6 +42,9 @@
       npm-check
       ripgrep
 
+      # Hyprland
+      kitty
+
       # Cyber Security
       nmap
       openvpn
