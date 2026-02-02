@@ -40,7 +40,7 @@
         "$mod, Q, killactive,"
         "$mod, M, exit,"
 	"$mod, B, exec, firefox"
-        "$mod, E, exec, thunar"
+        "$mod, E, exec, nautilus"
         "$mod, V, togglefloating,"
 	"$mod, F, fullscreen, 0"
 	"$mod, D, fullscreen, 1"
@@ -130,27 +130,30 @@
 
   programs.kitty = {
     enable = true;
-    
     themeFile = "Catppuccin-Mocha"; 
-
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 12;
     };
-
     settings = {
       background_opacity = "0.8";
-      dynamic_background_opacity = true; # Allows changing on the fly
+      dynamic_background_opacity = true;
       
       window_padding_width = 10;
-      confirm_os_window_close = 0; # Stops the annoying popup on close
+      confirm_os_window_close = 0;
       
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
       
-      repaint_delay = 10;
-      input_delay = 3;
+      cursor_trail = 3;
+      cursor_trail_decay = "0.1 0.4";
+      cursor_shape = "beam";
+      cursor_blink_interval = 0.5;
+
+      repaint_delay = 8;
+      input_delay = 2;
       sync_to_monitor = true;
+      disable_ligatures = "never";
     };
 
     keybindings = {
