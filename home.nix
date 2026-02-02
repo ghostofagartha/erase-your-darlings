@@ -45,6 +45,7 @@
 	      "$mod, F, fullscreen, 0"
 	      "$mod, D, fullscreen, 1"
 	      "$mod SHIFT, S, movetoworkspace, special"
+	      "$mod SHIFT, G, movetoworkspace, e+0"
         "$mod, S, togglespecialworkspace"
 
         "$mod, Escape, exec, caelestia-shell ipc call drawers toggle \"session\""
