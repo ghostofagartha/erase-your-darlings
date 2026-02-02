@@ -22,6 +22,7 @@
     vim
     neovim
     gnumake
+    cava
     gcc
     ripgrep
     fd
