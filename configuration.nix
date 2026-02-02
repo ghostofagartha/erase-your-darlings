@@ -2,7 +2,7 @@
 
 {
   imports = [ 
-    ./hardware-configuration.nix
+    ./modules/hardware-configuration.nix
     ./modules/persistence.nix
     ./modules/performance.nix
     ./modules/boot.nix

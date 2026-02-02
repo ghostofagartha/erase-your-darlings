@@ -15,6 +15,12 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      general = {
+        gaps_in = 5;
+	gaps_out = 15;
+	broder_size = 2;
+	layout = "master";
+      };
       monitor = ",preferred,auto,1";
       "$mod" = "SUPER";
       bind = [
