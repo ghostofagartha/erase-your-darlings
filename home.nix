@@ -39,7 +39,7 @@
 	"$mod, Return, exec, kitty"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-	"$mod, B, exec, firefox"
+	"$mod, W, exec, firefox"
         "$mod, E, exec, nautilus"
         "$mod, V, togglefloating,"
 	"$mod, F, fullscreen, 0"
@@ -53,7 +53,6 @@
         "$mod, U, exec, caelestia-shell ipc call drawers toggle \"utilities\""
 	"$mod, I, exec, caelestia-shell ipc call controlCenter open"
 	"$mod, SPACE, exec, caelestia-shell ipc call drawers toggle launcher"
-	"$mod, W, exec, caelestia-shell ipc call wallpaper list"
 	"$mod, L, exec, caelestia-shell ipc call lock lock"
 
 	"$mod, 1, workspace, 1"

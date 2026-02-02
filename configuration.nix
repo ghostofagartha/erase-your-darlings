@@ -21,6 +21,12 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    gnumake
+    gcc
+    ripgrep
+    fd
+    lua-language-server
+    stylua
     firefox
     git
     unzip
