@@ -176,6 +176,8 @@
     bc
     brightnessctl
     wireplumber
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
   ];
 
   # home-manager
