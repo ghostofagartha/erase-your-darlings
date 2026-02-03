@@ -28,6 +28,7 @@
 
       # Programming
       jdk25_headless
+      maven
       python3
       rustup
       gcc
