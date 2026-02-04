@@ -1,4 +1,4 @@
-{ input, nixpkgs, ... }:
+{ input, pkgs, ... }:
 
 {
     environment.systemPackages = with pkgs; [
