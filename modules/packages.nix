@@ -11,7 +11,7 @@
     unzip
     bat
     fd
-    fuzzyfinder
+    fzf
     ripgrep
     cava
 
