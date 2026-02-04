@@ -7,11 +7,8 @@
   users.users.aori = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "video" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "render" "video" "libvirtd" ];
     hashedPassword = "$6$jMy.J1W64oPNZ6WG$ivJyoDSxPVtlKiUZ7/CDSgxdR0yjSryW1UXWeoCnIhxF.col/RCBAnbA18xd5Oa1ExP33jWhuH5kJ.b0wFHW81";
-    
-    packages = with pkgs; [
-    ];
   };
 
   # Global Wine Settings
