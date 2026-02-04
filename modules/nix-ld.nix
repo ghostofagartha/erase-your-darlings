@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+
+{
   programs.nix-ld.enable = true;
-  
   programs.nix-ld.libraries = with pkgs; [
     zlib
     stdenv.cc.cc
@@ -13,14 +14,5 @@
     expat
     # Add common dependencies for LSPs and Treesitter
     glibc
-  ];
-
-  environment.systemPackages = with pkgs; [
-    gcc
-    gnumake
-    unzip
-    wget
-    ripgrep
-    fd
   ];
 }

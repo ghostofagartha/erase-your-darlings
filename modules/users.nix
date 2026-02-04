@@ -11,63 +11,6 @@
     hashedPassword = "$6$jMy.J1W64oPNZ6WG$ivJyoDSxPVtlKiUZ7/CDSgxdR0yjSryW1UXWeoCnIhxF.col/RCBAnbA18xd5Oa1ExP33jWhuH5kJ.b0wFHW81";
     
     packages = with pkgs; [
-      # Tools
-      wineWowPackages.stable
-
-      # VMs
-      qemu
-      virt-manager
-      virt-viewer
-      spice spice-gtk
-      spice-protocol
-      virtio-win
-      win-spice
-
-      # Browser
-      tor-browser
-
-      # Programming
-      jdk25_headless
-      maven
-      python3
-      rustup
-      gcc
-      jetbrains.idea
-      jetbrains.pycharm
-      jetbrains.rust-rover
-
-      # Neovim (Lazyvim)
-      neovim
-      gcc
-      nodejs
-      npm-check
-      ripgrep
-
-      # Hyprland
-      kitty
-
-      # Cyber Security
-      nmap
-      openvpn
-      theharvester
-      sqlmap
-      torsocks
-      wireshark-qt
-      burpsuite
-      macchanger
-      firejail
-      
-      # Media
-      pear-desktop
-
-      # Documents
-      onlyoffice-desktopeditors
-      obsidian
-
-      # Internet
-      discord
-      wasistlos
-      thunderbird
     ];
   };
 

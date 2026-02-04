@@ -1,14 +1,17 @@
 { config, pkgs, inputs, caelestia-shell, ... }:
 
 {
+  # Imports
   imports = [
     caelestia-shell.homeManagerModules.default
   ];
 
+  # User
   home.username = "aori";
   home.homeDirectory = "/home/aori";
   home.stateVersion = "25.05";
 
+  # Point Cursor
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -16,26 +19,35 @@
     size = 24;
   };
   
-  programs.git.enable = true;
-  programs.caelestia.enable = true;
-
+  # Hyprland Settings
   wayland.windowManager.hyprland = {
     enable = true;
+
+    # Configuration Settings
     settings = {
+
+      # General
       general = {
         gaps_in = 5;
 	      gaps_out = 15;
 	      border_size = 2;
 	      layout = "master";
       };
+
+      # 'Master' Layout
       master = {
 	      new_status = "master";
         mfact = 0.5;
         orientation = "left";
       };
+
+      # Monitor Settings
       monitor = ",preferred,auto,1";
       "$mod" = "SUPER";
+
+      # Keybindings
       bind = [
+        # Basic Navigation Keybinds
 	      "$mod, Return, exec, kitty"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
@@ -48,13 +60,16 @@
 	      "$mod SHIFT, G, movetoworkspace, e+0"
         "$mod, S, togglespecialworkspace"
 
+        # Caelestia Shell Keybinds
         "$mod, Escape, exec, caelestia-shell ipc call drawers toggle \"session\""
         "$mod, N, exec, caelestia-shell ipc call drawers toggle \"dashboard\""
         "$mod, U, exec, caelestia-shell ipc call drawers toggle \"utilities\""
 	      "$mod, I, exec, caelestia-shell ipc call controlCenter open"
 	      "$mod, SPACE, exec, caelestia-shell ipc call drawers toggle launcher"
 	      "$mod, L, exec, caelestia-shell ipc call lock lock"
+  	    ", Print, exec, caelestia-shell ipc call picker open"
 
+        # Changing Workspace Keybinds
 	      "$mod, 1, workspace, 1"
   	    "$mod, 2, workspace, 2"
   	    "$mod, 3, workspace, 3"
@@ -65,7 +80,10 @@
   	    "$mod, 8, workspace, 8"
   	    "$mod, 9, workspace, 9"
   	    "$mod, 0, workspace, 10"
+  	    "$mod, Prior, workspace, e-1"
+  	    "$mod, Next, workspace, e+1"
 
+        # Moving Programs Across Workspaces Keybinds
   	    "$mod SHIFT, 1, movetoworkspace, 1"
   	    "$mod SHIFT, 2, movetoworkspace, 2"
   	    "$mod SHIFT, 3, movetoworkspace, 3"
@@ -77,25 +95,22 @@
   	    "$mod SHIFT, 9, movetoworkspace, 9"
   	    "$mod SHIFT, 0, movetoworkspace, 10"
 
+        # Focus Window Keybinds
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
+        # Changing Location of Windows
         "$mod SHIFT, left, movewindow, l"
         "$mod SHIFT, right, movewindow, r"
         "$mod SHIFT, up, movewindow, u"
         "$mod SHIFT, down, movewindow, d"
 
-  	    ", Print, exec, caelestia-shell ipc call picker open"
-
-  	    "$mod, Prior, workspace, e-1"
-  	    "$mod, Next, workspace, e+1"
-
+        # Top Row Keybinds
 	      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 10%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
 	      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      
         ", XF86MonBrightnessUp, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) + 0.1\" | bc)"
         ", XF86MonBrightnessDown, exec, caelestia-shell ipc call brightness set $(echo \"$(caelestia-shell ipc call brightness get) - 0.1\" | bc)"
       ];
@@ -106,6 +121,8 @@
 	      "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+
+      # Inputs Setting
       input = {
 	      kb_layout = "gb";
         follow_mouse = 1;
@@ -113,6 +130,8 @@
           natural_scroll = true;
 	      };
       };
+
+      # Decorations and Aesthetics
       decoration = {
 	    rounding = 10;
 	    active_opacity = 0.95;
@@ -127,6 +146,7 @@
     };
   };
 
+  # Kitty Terminal Settings
   programs.kitty = {
     enable = true;
     themeFile = "Catppuccin-Mocha"; 
@@ -134,6 +154,8 @@
       name = "JetBrainsMono Nerd Font";
       size = 12;
     };
+
+    # Configuration Settings
     settings = {
       background_opacity = "0.8";
       dynamic_background_opacity = true;
@@ -155,31 +177,26 @@
       disable_ligatures = "never";
     };
 
+    # Keybindings
     keybindings = {
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+c" = "copy_to_clipboard";
     };
   };
 
-  services.swayidle = {
-      enable = true;
-      events = [
-        {
-          event = "before-sleep";
-          command = "caelestia-shell ipc call lock lock";
-        }
-      ];
-    };
-
-  home.packages = with pkgs; [
+  # User Packages
+  home.packages = with pkgs; 
+  [
     home-manager 
     bc
     brightnessctl
     wireplumber
     gpu-screen-recorder
     gpu-screen-recorder-gtk
+    swayidle
   ];
 
-  # home-manager
+  # Enabled Programs
+  programs.caelestia.enable = true;
   programs.home-manager.enable = true;
 }

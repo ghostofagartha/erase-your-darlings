@@ -1,10 +1,12 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+# Imports
   imports = [ 
     ./modules/hardware-configuration.nix
     ./modules/persistence.nix
     ./modules/performance.nix
+    ./modules/packages.nix
     ./modules/boot.nix
     ./modules/swap.nix
     ./modules/desktop.nix
@@ -13,29 +15,11 @@
     ./modules/nix-ld.nix
   ];
 
+  # Networking & Identity
   networking.hostName = "nixos-btw";
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Karachi";
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    gnumake
-    cava
-    gcc
-    ripgrep
-    fd
-    lua-language-server
-    stylua
-    firefox
-    git
-    unzip
-    p7zip
-    wget
-    tree
-    fastfetch
-  ];
 
   # --- System Fonts ---
   fonts.packages = with pkgs; [
@@ -43,16 +27,6 @@
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
   ];
-
-  services.logind = {
-    lidSwitch = "suspend";
-    settings = {
-      Login = {
-        LidSwitchIgnoreInhibited = "no";
-        HoldOffTimeoutSec = 10;
-      };
-    };
-  };
 
   # --- NIX MAINTENANCE ---
   nix.gc = {
