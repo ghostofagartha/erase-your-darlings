@@ -24,6 +24,7 @@
     gcc
     rustup
     zed-editor
+    jetbrains.idea
 
     # Cyber Security
     /*nmap
