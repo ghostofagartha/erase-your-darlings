@@ -196,23 +196,28 @@
   programs.git = {
     enable = true;
 
-    userName = "ghostofagartha";
-    userEmail = "darkside4464@gmail.com";
+    settings = {
+      user = {
+        name = "ghostofagartha";
+        email = "darkside4464@gmail.com";
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       safe.directory = "/persist/etc/nixos";
     };
-  }; 
+  };
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
-    extraConfig = ''
-      AddKeysToAgent yes
-      IdentityFile ~/.ssh/id_ed25519
-    '';
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+    };
   };
   services.ssh-agent.enable = true;
 
