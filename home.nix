@@ -214,7 +214,7 @@
 
     matchBlocks = {
       "*" = {
-        addKeysToAgent = true;
+        addKeysToAgent = "yes";
         identityFile = "~/.ssh/id_ed25519";
       };
     };
