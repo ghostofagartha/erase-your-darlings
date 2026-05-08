@@ -5,6 +5,7 @@
     # Core Utilities
     wget
     git
+    dust
     fastfetch
     tree
     p7zip
@@ -40,7 +41,7 @@
     obsidian
 
     # Internet
-    # discord
+    discord
     thunderbird
     stablePkgs.wasistlos
   ];
