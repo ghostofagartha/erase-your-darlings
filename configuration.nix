@@ -30,6 +30,9 @@
     nerd-fonts.symbols-only
   ];
 
+  # --- Printing/ CUPS ---
+  services.printing.enable = false;
+
   # --- NIX MAINTENANCE ---
   nix.gc = {
     automatic = true;
