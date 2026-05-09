@@ -13,6 +13,7 @@
 
     # Tools
     gef
+    gdb
     wineWow64Packages.stable
     vim
     neovim
