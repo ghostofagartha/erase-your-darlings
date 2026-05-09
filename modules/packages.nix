@@ -12,6 +12,7 @@
     ripgrep
 
     # Tools
+    gef
     wineWow64Packages.stable
     vim
     neovim
