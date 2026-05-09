@@ -42,6 +42,7 @@
     obsidian
 
     # Internet
+    ferdium
     discord
     thunderbird
     stablePkgs.wasistlos
