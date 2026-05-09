@@ -40,6 +40,7 @@
     # Documents
     onlyoffice-desktopeditors
     obsidian
+    z-library-desktop
 
     # Internet
     ferdium
