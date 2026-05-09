@@ -1,11 +1,14 @@
 { pkgs, ... }:
 
 {
-  # --- GNOME ---
+  # --- PLASMA ---
   services.xserver.enable = true;
   services.xserver.xkb.layout = "gb";
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    orca
+  ];
 
   # Hyprland
   #programs.hyprland.enable = true;
@@ -17,4 +20,5 @@
     enable = true;
     pulse.enable = true;
   };
+  services.speechd.enable = false;
 }
