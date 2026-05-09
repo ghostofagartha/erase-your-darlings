@@ -41,6 +41,7 @@
     onlyoffice-desktopeditors
     obsidian
     z-library-desktop
+    calibre
 
     # Internet
     ferdium
