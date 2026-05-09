@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # --- PLASMA ---
@@ -7,7 +7,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    orca
   ];
 
   # Hyprland
@@ -20,5 +19,5 @@
     enable = true;
     pulse.enable = true;
   };
-  services.speechd.enable = false;
+  services.speechd.enable = lib.mkForce false;
 }
