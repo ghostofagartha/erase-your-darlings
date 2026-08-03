@@ -190,7 +190,6 @@
     gum
     yazi
     glib
-    app2unit
     starship
     fuzzel
     wl-clipboard
