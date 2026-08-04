@@ -9,7 +9,6 @@
     ./modules/boot.nix
     ./modules/users.nix
     ./modules/ld.nix
-    ./modules/swap.nix
     ./desktop/desktop.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
