@@ -8,7 +8,7 @@ let
     };
   };
 in {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     sddm-astronaut
     gum
   ];
