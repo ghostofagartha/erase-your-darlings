@@ -8,18 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, caelestia-shell, caelestia-cli, lazyvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, lazyvim, ... }@inputs: {
     nixosConfigurations.Phantom = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 

@@ -10,6 +10,7 @@ let
 in {
   environment.systemPackages = [
     sddm-astronaut
+    gum
   ];
   services.displayManager.sddm = {
     enable = true;

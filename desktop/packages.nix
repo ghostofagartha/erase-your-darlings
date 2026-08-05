@@ -5,16 +5,16 @@
     # Core Utilities
     git
     eza
+    zoxide
+    yazi
     fastfetch
     tree
+    starship
     btop
     p7zip
     ripgrep
     dust
     neovim
-
-    # Polkit
-    polkit_gnome
 
     # Browser
     firefox

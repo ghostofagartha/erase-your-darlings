@@ -1,23 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [
-  ];
-
-  # --- Desktop/Hyprland ---
+  # --- Desktop ---
   services.xserver.enable = true;
-  programs.hyprland = { 
-    enable = true;
-    withUWSM = true;
-  };
-  programs.gpu-screen-recorder.enable = true;
-  services.upower.enable = true;
+  programs.niri.enable = true;
   services.power-profiles-daemon.enable = true;
-  security.polkit.enable = true;
-
-  # --- For Disks Mounting
-  services.udisks2.enable = true;
-  services.gvfs.enable = true;
 
   # --- Hardware Drivers ---
   hardware.graphics = {

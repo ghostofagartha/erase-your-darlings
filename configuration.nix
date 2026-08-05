@@ -30,9 +30,6 @@
     nerd-fonts.symbols-only
   ];
 
-  # Force enable the core polkit framework
-  security.polkit.enable = true;
-
   # --- NIX MAINTENANCE ---
   nix.gc = {
     automatic = true;
