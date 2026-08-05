@@ -1,6 +1,12 @@
 {
   description = "Aori's Stateless NixOS Flake";
 
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
+
+  # Inputs
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
@@ -15,7 +21,7 @@
     lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, lazyvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, noctalia, lazyvim, ... }@inputs: {
     nixosConfigurations.Phantom = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 

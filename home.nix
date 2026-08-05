@@ -3,10 +3,12 @@
 {
   imports = [
     inputs.lazyvim.homeManagerModules.default
+    inputs.noctalia.homeModules.default
     ./home_modules/mpv.nix
     ./home_modules/nvim.nix
     ./home_modules/pointer.nix
     ./home_modules/shell.nix
+    ./home_modules/noctalia.nix
   ];
 
   # Home Settings
