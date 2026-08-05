@@ -13,10 +13,6 @@
     dust
     neovim
 
-    # iGPU
-    intel-compute-runtime
-    clinfo
-
     # Polkit
     polkit_gnome
 
