@@ -14,6 +14,7 @@
   };
 
   programs.home-manager.enable = true;
+  programs.waybar.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -148,6 +149,7 @@
   home.packages = with pkgs; [
     # Desktop
     foot
+    brightnessctl
     alacritty
 
 
