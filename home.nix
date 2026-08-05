@@ -148,6 +148,7 @@
   home.packages = with pkgs; [
     # Desktop
     foot
+    alacritty
 
 
     # Documents
