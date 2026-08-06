@@ -1,8 +1,9 @@
-{ inputs, ...}:
+{ inputs, pkgs, ...}:
 
 {
   programs.noctalia = {
     enable = true;
+    package = inputs.noctalia.packages.${pkgs.system}.default;
     settings = {
       config_version = 12;
       recommendedServices.enable = true;
