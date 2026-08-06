@@ -28,8 +28,6 @@
   home.packages = with pkgs; [
     # Desktop
     foot
-    brightnessctl
-    alacritty
 
     # Documents
     libreoffice
