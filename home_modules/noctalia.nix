@@ -165,6 +165,7 @@
 
       wallpaper = {
         enabled = true;
+        transition_on_startup = true;
         default = {
           path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper24.jpg";
         };
