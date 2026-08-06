@@ -20,8 +20,8 @@
           capsule = true;
           capsule_group = [];
           center = [ "notifications" "clock" "control-center" ];
-          end = [ "network" "bluetooth" "volume" "battery" "session" ];
-          start = [ "launcher" "workspaces" ];
+          end = [ "tray" "network" "bluetooth" "volume" "battery" "session" ];
+          start = [ "launcher" "workspaces" "sysmon" ];
         };
       };
 
@@ -52,6 +52,11 @@
 
       location = {
         auto_locate = true;
+      };
+
+      lockscreen = {
+        enabled = true;
+        desktop_capture = true;
       };
 
       lockscreen_widgets = {
@@ -137,7 +142,7 @@
       };
 
       osd = {
-        position = "center";
+        position = "top_center";
       };
 
       shell = {
@@ -182,6 +187,8 @@
       weather = {
         enabled = false;
       };
+
+      widget.bluetooth.hide_when_no_connected_device = true;
     };
   };
 }
