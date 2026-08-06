@@ -19,9 +19,9 @@
         default = {
           capsule = true;
           capsule_group = [];
-          center = [ "notifications" "clock" "control-center" ];
-          end = [ "tray" "network" "bluetooth" "volume" "battery" "session" ];
-          start = [ "launcher" "workspaces" "sysmon" ];
+          center = [ "notifications" "clock" "battery" ];
+          end = [ "tray" "network" "bluetooth" "volume" "session" ];
+          start = [ "control-center" "workspaces" "sysmon" ];
         };
       };
 
@@ -172,20 +172,27 @@
         enabled = true;
         transition_on_startup = true;
         default = {
-          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper24.jpg";
+          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
         };
         last = {
-          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper24.jpg";
+          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
         };
         monitors = {
           "eDP-1" = {
-            path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper24.jpg";
+            path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
           };
         };
       };
 
       weather = {
         enabled = false;
+      };
+
+      mainBar = {
+        "widget.battery" = {
+          capsule = true;
+          display_mode = "graphic";
+        };
       };
 
       widget.bluetooth.hide_when_no_connected_device = true;
