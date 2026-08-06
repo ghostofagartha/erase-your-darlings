@@ -1,10 +1,18 @@
-{ stdenv, lib }:
+{ stdenv, lib, autoPatchelfHook, cups }:
 
 stdenv.mkDerivation {
   pname = "hp-laser-10x-driver";
   version = "1.00.39.12";
 
   src = ./uld-hp;
+
+  nativeBuildInputs = [
+    autoPatchelfHook
+  ];
+
+  buildInputs = [
+    cups
+  ];
 
   dontBuild = true;
   dontConfigure = true;
@@ -20,8 +28,5 @@ stdenv.mkDerivation {
       $out/share/cups/model/HP_Laser_10x_Series.ppd
   '';
 
-  meta = {
-    description = "HP Laser 10x series CUPS driver";
-    platforms = [ "x86_64-linux" ];
-  };
+  meta.platforms = [ "x86_64-linux" ];
 }
