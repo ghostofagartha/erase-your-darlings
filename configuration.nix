@@ -12,7 +12,6 @@
     ./desktop/desktop.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
-    ./desktop/cups.nix
   ];
 
   # Networking & Identity
