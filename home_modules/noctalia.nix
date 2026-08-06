@@ -137,7 +137,7 @@
       };
 
       osd = {
-        position = "top_left";
+        position = "center";
       };
 
       shell = {
