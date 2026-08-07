@@ -11,7 +11,6 @@
     directories = [
       "/etc/nixos"
       "/etc/NetworkManager"
-      "/var/lib/AccountsService"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/db/sudo"
