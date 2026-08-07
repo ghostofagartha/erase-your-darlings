@@ -16,9 +16,6 @@
     dust
     neovim
 
-    # Niri
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-
     # Browser
     firefox
   ];
