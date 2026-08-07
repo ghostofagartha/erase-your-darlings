@@ -58,6 +58,7 @@
       lockscreen = {
         enabled = true;
         desktop_capture = true;
+        blurred_desktop = true;
       };
 
       lockscreen_widgets = {
