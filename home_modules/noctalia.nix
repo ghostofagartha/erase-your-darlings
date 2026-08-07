@@ -27,7 +27,7 @@
       };
 
       brightness = {
-        minimum_brightness = 0.099999997764825821;
+        minimum_brightness = 0.05;
       };
 
       idle = {
