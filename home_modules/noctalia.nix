@@ -20,8 +20,8 @@
         default = {
           capsule = true;
           capsule_group = [];
-          center = [ "notifications" "clock" "battery" ];
-          end = [ "tray" "network" "bluetooth" "volume" "session" ];
+          center = [ "notifications" "clock" ];
+          end = [ "tray" "network" "bluetooth" "volume" "battery" "session" ];
           start = [ "control-center" "workspaces" "sysmon" ];
         };
       };
