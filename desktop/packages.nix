@@ -23,6 +23,8 @@
     firefox
   ];
 
+  services.locate.enable = true;
+
   nixpkgs.config.permittedInsecurePackages = [
   ];
   nixpkgs.config.allowUnsupportedSystem = true;
