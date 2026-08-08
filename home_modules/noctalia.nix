@@ -173,17 +173,6 @@
       wallpaper = {
         enabled = true;
         transition_on_startup = true;
-        default = {
-          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
-        };
-        last = {
-          path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
-        };
-        monitors = {
-          "eDP-1" = {
-            path = "/home/aori/Pictures/Wallpapers/Bike_Wallpaper18.jpg";
-          };
-        };
       };
 
       weather = {
