@@ -21,8 +21,8 @@
           capsule = true;
           capsule_group = [];
           center = [ "notifications" "clock" ];
-          end = [ "tray" "network" "bluetooth" "volume" "battery" "session" ];
-          start = [ "control-center" "workspaces" "sysmon" ];
+          end = [ "tray" "network" "bluetooth" "volume" "session" ];
+          start = [ "battery" "workspaces" "sysmon" ];
         };
       };
 
