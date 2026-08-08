@@ -20,21 +20,21 @@
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/4c333d63-56c3-4bce-a3fa-a4ba754676cc";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [ "subvol=@nix" "noatime" "compress=zstd" ];
       neededForBoot = true;
     };
 
   fileSystems."/persist" =
     { device = "/dev/disk/by-uuid/4c333d63-56c3-4bce-a3fa-a4ba754676cc";
       fsType = "btrfs";
-      options = [ "subvol=@persist" ];
+      options = [ "subvol=@persist" "noatime" "compress=zstd" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
     { device = "/dev/disk/by-uuid/4c333d63-56c3-4bce-a3fa-a4ba754676cc";
       fsType = "btrfs";
-      options = [ "subvol=@log" ];
+      options = [ "subvol=@log" "noatime" "compress=zstd" ];
       neededForBoot = true;
     };
 
