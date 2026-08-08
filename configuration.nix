@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
 
     ./system/persistence.nix
+    ./system/performance.nix
     ./system/hardware.nix
     ./system/power.nix
     ./system/boot.nix
