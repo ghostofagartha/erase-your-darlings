@@ -1,31 +1,30 @@
-{ inputs, ...}:
+{ inputs, ... }:
 
 {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;     # Note: singular "autosuggestion" in Home Manager
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     initContent = ''
       function zsh_greeting() {
-        echo -ne '\x1b[38;5;15m'  # Set colour to primary
+        echo -ne '\x1b[38;5;15m'
         echo '     ______           __          __  _       '
         echo '    / ____/___ ____  / /__  _____/ /_(_)___ _ '
         echo '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ '
         echo '  / /___/ /_/ /  __/ /  __(__  ) /_/ / /_/ /  '
         echo '  \____/\__,_/\___/_/\___/____/\__/_/\__,_/   '
-        echo -ne '\x1b[0m'             # Reset color to normal
+        echo -ne '\x1b[0m'
         command -v fastfetch &> /dev/null && fastfetch --key-padding-left 5
       }
 
       zsh_greeting
-      
+
       command -v starship &> /dev/null && eval "$(starship init zsh)"
       command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
       command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd cd)"
 
-      # Foot terminal prompt jump marker 
       function mark_prompt_start() {
         print -n "\e]133;A\e\\"
       }
@@ -33,14 +32,12 @@
     '';
 
     shellAliases = {
-      # Better ls
       ls = "eza --icons --group-directories-first -1";
       l = "ls";
       ll = "ls -l";
       la = "ls -a";
       lla = "ls -la";
 
-      # Git shorthand bindings
       lg = "lazygit";
       gd = "git diff";
       ga = "git add .";
@@ -60,9 +57,8 @@
     };
   };
 
-  # Starship
   programs.starship = {
     enable = true;
-    enableFishIntegration = true; 
+    enableFishIntegration = true;
   };
 }

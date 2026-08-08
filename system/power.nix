@@ -1,9 +1,10 @@
 { config, ... }:
 
 {
+  # --- TLP (AC/battery power profiles) ---
   services.tlp = {
     enable = true;
-    pd.enable = true; 
+    pd.enable = true;
 
     settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
@@ -27,5 +28,23 @@
       WIFI_PWR_ON_AC = "off";
       WIFI_PWR_ON_BAT = "on";
     };
+  };
+
+  # --- Swap / zram ---
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 100;
+  };
+
+  swapDevices = [ {
+    device = "/persist/swapfile";
+    priority = 1;
+  } ];
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+    "vm.vfs_cache_pressure" = 50;
   };
 }

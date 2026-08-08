@@ -1,8 +1,8 @@
 { config, lib, inputs, ... }:
 
 {
-  imports = [ 
-    inputs.impermanence.nixosModules.impermanence 
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   # Impermanence configuration

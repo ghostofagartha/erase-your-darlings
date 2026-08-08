@@ -1,26 +1,23 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-# Imports
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
-    ./modules/persistence.nix
-    ./modules/performance.nix
-    ./modules/tlp.nix
-    ./modules/boot.nix
-    ./modules/users.nix
-    ./modules/ld.nix
-    ./desktop/desktop.nix
+
+    ./system/persistence.nix
+    ./system/hardware.nix
+    ./system/power.nix
+    ./system/boot.nix
+    ./system/users.nix
+    ./system/nix-ld.nix
+    ./system/networking.nix
+    ./system/nix-settings.nix
+
+    ./desktop/niri.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
   ];
 
-  # Networking & Identity
-  networking = {
-    hostName = "Phantom";
-    networkmanager.enable = true;
-    firewall.enable = true;
-  };
   time.timeZone = "Asia/Karachi";
   i18n.defaultLocale = "en_GB.UTF-8";
 
@@ -31,18 +28,5 @@
     nerd-fonts.symbols-only
   ];
 
-  # --- NIX MAINTENANCE ---
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
-  # --- NIX SETTINGS ---
-  nix.settings.auto-optimise-store = true;
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.05";
 }

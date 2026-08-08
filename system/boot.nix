@@ -7,8 +7,8 @@
     loader.timeout = 10;
     consoleLogLevel = 0;
     kernelModules = [ "acpi_call" ];
-    extraModulePackages = with config.boot.kernelPackages; [ 
-      acpi_call 
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
     ];
   };
 
