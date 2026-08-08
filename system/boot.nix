@@ -5,7 +5,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.timeout = 10;
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
