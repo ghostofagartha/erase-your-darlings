@@ -4,7 +4,6 @@
   # --- Desktop ---
   services.xserver.enable = true;
   programs.niri.enable = true;
-  services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
   # --- Hardware Drivers ---

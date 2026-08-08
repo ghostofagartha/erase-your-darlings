@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ./modules/persistence.nix
     ./modules/performance.nix
+    ./modules/tlp.nix
     ./modules/boot.nix
     ./modules/users.nix
     ./modules/ld.nix
