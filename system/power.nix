@@ -1,48 +1,46 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # --- Power Profiles Daemon: CPU governor/EPP/boost, 3-mode switching ---
+  # --- Power Profiles Daemon: performance/balanced/power-saver ---
   services.power-profiles-daemon.enable = true;
 
-  # --- TLP: everything EXCEPT CPU scaling (no conflict with PPD) ---
-  services.tlp = {
-    enable = true;
-    settings = {
-      # ───── Battery charging ─────
-      START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 80;
+  # --- Battery charge thresholds, independent of TLP ---
+  systemd.services.battery-charge-threshold = {
+    description = "Set battery charge thresholds";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = pkgs.writeShellScript "set-charge-threshold" ''
+        for bat in /sys/class/power_supply/BAT*; do
+          if [ -f "$bat/charge_control_start_threshold" ]; then
+            echo 75 > "$bat/charge_control_start_threshold" || true
+          fi
+          if [ -f "$bat/charge_control_end_threshold" ]; then
+            echo 80 > "$bat/charge_control_end_threshold" || true
+          fi
+        done
+      '';
+    };
+  };
 
-      # ───── PCIe ASPM ─────
-      PCIE_ASPM_ON_AC = "default";
-      PCIE_ASPM_ON_BAT = "powersupersave";
-
-      # ───── Audio ─────
-      SOUND_POWER_SAVE_ON_AC = 0;
-      SOUND_POWER_SAVE_ON_BAT = 1;
-
-      # ───── USB autosuspend ─────
-      USB_AUTOSUSPEND = 1;
-      USB_EXCLUDE_BTUSB = 1;   # avoid Bluetooth dropouts
-
-      # ───── Wi-Fi power saving ─────
-      WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
-
-      # ───── Runtime power management (PCI devices) ─────
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
-
-      # ───── Disk I/O scheduler ─────
-      DISK_IOSCHED = "mq-deadline";
-
-      # ───── SATA link power management ─────
-      SATA_LINKPWR_ON_AC = "med_power_with_dipm";
-      SATA_LINKPWR_ON_BAT = "min_power";
-
-      # NOTE: deliberately NOT setting any CPU_* keys here
-      # (CPU_SCALING_GOVERNOR_*, CPU_ENERGY_PERF_POLICY_*, CPU_BOOST_*,
-      #  CPU_HWP_DYN_BOOST_*, CPU_MIN_PERF_*, CPU_MAX_PERF_*)
-      # so TLP never touches CPU scaling — that's fully owned by PPD.
+  systemd.services.battery-charge-threshold-resume = {
+    description = "Reapply battery charge thresholds after resume";
+    after = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
+    wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "reapply-charge-threshold" ''
+        for bat in /sys/class/power_supply/BAT*; do
+          if [ -f "$bat/charge_control_start_threshold" ]; then
+            echo 75 > "$bat/charge_control_start_threshold" || true
+          fi
+          if [ -f "$bat/charge_control_end_threshold" ]; then
+            echo 80 > "$bat/charge_control_end_threshold" || true
+          fi
+        done
+      '';
     };
   };
 
