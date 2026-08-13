@@ -6,6 +6,7 @@
     loader.efi.canTouchEfiVariables = true;
     loader.timeout = 10;
     consoleLogLevel = 3;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
