@@ -8,19 +8,6 @@
     syntaxHighlighting.enable = true;
 
     initContent = ''
-      function zsh_greeting() {
-        echo -ne '\x1b[38;5;15m'
-        echo '     ______           __          __  _       '
-        echo '    / ____/___ ____  / /__  _____/ /_(_)___ _ '
-        echo '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ '
-        echo '  / /___/ /_/ /  __/ /  __(__  ) /_/ / /_/ /  '
-        echo '  \____/\__,_/\___/_/\___/____/\__/_/\__,_/   '
-        echo -ne '\x1b[0m'
-        command -v fastfetch &> /dev/null && fastfetch --key-padding-left 5
-      }
-
-      zsh_greeting
-
       command -v starship &> /dev/null && eval "$(starship init zsh)"
       command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
       command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd cd)"
