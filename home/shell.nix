@@ -1,33 +1,34 @@
 { inputs, ... }:
 
 {
-  programs.fish = {
+  programs.zsh = {
     enable = true;
-    interactiveShellInit = ''
-      function fish_greeting
-        set_color brwhite
-        printf '     ______           __          __  _       \n'
-        printf '    / ____/___ ____  / /__  _____/ /_(_)___ _ \n'
-        printf '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ \n'
-        printf '  / /___/ /_/ /  __/ /  __(__  ) /_/ / /_/ /  \n'
-        printf '  \____/\__,_/\___/_/\___/____/\__/_/\__,_/   \n'
-        set_color normal
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
-        command -v fastfetch &> /dev/null; and fastfetch --key-padding-left 5
-      end
+    initContent = ''
+      function zsh_greeting() {
+        echo -ne '\x1b[38;5;15m'
+        echo '     ______           __          __  _       '
+        echo '    / ____/___ ____  / /__  _____/ /_(_)___ _ '
+        echo '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ '
+        echo '  / /___/ /_/ /  __/ /  __(__  ) /_/ / /_/ /  '
+        echo '  \____/\__,_/\___/_/\___/____/\__/_/\__,_/   '
+        echo -ne '\x1b[0m'
+        command -v fastfetch &> /dev/null && fastfetch --key-padding-left 5
+      }
 
-      command -v direnv &> /dev/null; and direnv hook fish | source
-      command -v zoxide &> /dev/null; and zoxide init fish --cmd cd | source
+      zsh_greeting
 
-      function mark_prompt_start
-        printf '\e]133;A\e\\'
-      end
+      command -v starship &> /dev/null && eval "$(starship init zsh)"
+      command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+      command -v zoxide &> /dev/null && eval "$(zoxide init zsh --cmd cd)"
 
-      functions --copy fish_prompt original_fish_prompt
-      function fish_prompt
-        mark_prompt_start
-        original_fish_prompt
-      end
+      function mark_prompt_start() {
+        print -n "\e]133;A\e\\"
+      }
+      precmd_functions+=(mark_prompt_start)
     '';
 
     shellAliases = {
