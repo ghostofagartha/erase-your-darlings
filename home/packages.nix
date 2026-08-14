@@ -5,6 +5,9 @@
     # Desktop
     foot
 
+    # Games
+    hmcl
+
     # Documents
     libreoffice
     obsidian
