@@ -12,6 +12,8 @@
     shell = pkgs.fish;
   };
 
+  programs.fish.enable = true;
+
   programs.git = {
     enable = true;
     config = {

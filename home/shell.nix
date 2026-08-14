@@ -2,8 +2,6 @@
 
 {
   programs.fish = {
-    enable = true;
-
     interactiveShellInit = ''
       function fish_greeting
         set_color 15
