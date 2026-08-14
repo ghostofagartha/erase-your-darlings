@@ -5,7 +5,7 @@
     enable = true;
     interactiveShellInit = ''
       function fish_greeting
-        set_color 15
+        set_color brwhite
         printf '     ______           __          __  _       \n'
         printf '    / ____/___ ____  / /__  _____/ /_(_)___ _ \n'
         printf '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ \n'
