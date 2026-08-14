@@ -20,6 +20,10 @@
     firefox
   ];
 
+  services = {
+    flatpak.enable = true;
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
   ];
   nixpkgs.config.allowUnsupportedSystem = true;

@@ -15,8 +15,4 @@
     equibop
     thunderbird
   ];
-
-  services = {
-    flatpak.enable = true;
-  };
 }
