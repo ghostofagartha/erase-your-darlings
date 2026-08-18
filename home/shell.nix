@@ -5,27 +5,7 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting = { 
-      enable = true;
-      styles = {
-        default = "fg=#e8dfe5";
-        command = "fg=#e8dfe5";
-        builtin = "fg=#e8dfe5";
-        function = "fg=#e8dfe5";
-        alias = "fg=#e8dfe5";
-        arg0 = "fg=#e8dfe5";
-        arg1 = "fg=#e8dfe5";
-        arg2 = "fg=#e8dfe5";
-        arg3 = "fg=#e8dfe5";
-        path = "fg=#e8dfe5";
-        single-hyphen-option = "fg=#d6b8c8";
-        double-hyphen-option = "fg=#d6b8c8";
-        single-quoted-argument = "fg=#c9bec7";
-        double-quoted-argument = "fg=#c9bec7";
-        comment = "fg=#6e6a86";
-        unknown-token = "fg=#c98f9d";
-      };
-    };
+    syntaxHighlighting.enable = true;
 
     initContent = ''
       function zsh_greeting() {
