@@ -9,7 +9,7 @@
 
     initContent = ''
       function zsh_greeting() {
-        echo -ne '\x1b[38;2;137;220;235m'
+        echo -ne '\x1b[38;5;15m'
         echo '     ______           __          __  _       '
         echo '    / ____/___ ____  / /__  _____/ /_(_)___ _ '
         echo '   / /   / __ `/ _ \/ / _ \/ ___/ __/ / __ `/ '
