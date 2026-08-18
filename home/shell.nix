@@ -8,43 +8,37 @@
     syntaxHighlighting = { 
       enable = true;
       styles = {
-        # Normal typed text
-        default = "fg=#e8dfe5";
+        # Main text
+      default = "fg=#e8dfe5";
 
-        # Valid commands
-        command = "fg=#e8dfe5";
+      # Commands
+      command = "fg=#e8dfe5";
+      builtin = "fg=#e8dfe5";
+      function = "fg=#e8dfe5";
+      alias = "fg=#e8dfe5";
 
-        # Built-in commands
-        builtin = "fg=#e8dfe5";
+      # Arguments / values
+      arg0 = "fg=#e8dfe5";
+      arg1 = "fg=#e8dfe5";
+      arg2 = "fg=#e8dfe5";
+      arg3 = "fg=#e8dfe5";
 
-        # Aliases
-        alias = "fg=#e8dfe5";
+      # Paths
+      path = "fg=#e8dfe5";
 
-        # Functions
-        function = "fg=#e8dfe5";
+      # Options
+      single-hyphen-option = "fg=#d6b8c8";
+      double-hyphen-option = "fg=#d6b8c8";
 
-        # Unknown/invalid commands
-        unknown-token = "fg=#eb6f92";
+      # Strings
+      single-quoted-argument = "fg=#c9bec7";
+      double-quoted-argument = "fg=#c9bec7";
 
-        # Arguments
-        arg0 = "fg=#e8dfe5";
-        arg1 = "fg=#e8dfe5";
-        arg2 = "fg=#e8dfe5";
-        arg3 = "fg=#e8dfe5";
+      # Comments
+      comment = "fg=#6e6a86";
 
-        # Paths
-        path = "fg=#e8dfe5";
-
-        # Strings
-        single-quoted-argument = "fg=#e8dfe5";
-        double-quoted-argument = "fg=#e8dfe5";
-
-        # Comments
-        comment = "fg=#6e6a86";
-
-        # Options such as --help
-        single-hyphen-option = "fg=#c4a7e7";
-        double-hyphen-option = "fg=#c4a7e7";
+      # Invalid commands — muted dusty rose instead of red
+      unknown-token = "fg=#c98f9d";
       };
     };
 
