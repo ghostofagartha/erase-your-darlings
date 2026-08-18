@@ -5,7 +5,48 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    syntaxHighlighting = { 
+      enable = true;
+      styles = {
+        # Normal typed text
+        default = "fg=#e8dfe5";
+
+        # Valid commands
+        command = "fg=#e8dfe5";
+
+        # Built-in commands
+        builtin = "fg=#e8dfe5";
+
+        # Aliases
+        alias = "fg=#e8dfe5";
+
+        # Functions
+        function = "fg=#e8dfe5";
+
+        # Unknown/invalid commands
+        unknown-token = "fg=#eb6f92";
+
+        # Arguments
+        arg0 = "fg=#e8dfe5";
+        arg1 = "fg=#e8dfe5";
+        arg2 = "fg=#e8dfe5";
+        arg3 = "fg=#e8dfe5";
+
+        # Paths
+        path = "fg=#e8dfe5";
+
+        # Strings
+        single-quoted-argument = "fg=#e8dfe5";
+        double-quoted-argument = "fg=#e8dfe5";
+
+        # Comments
+        comment = "fg=#6e6a86";
+
+        # Options such as --help
+        single-hyphen-option = "fg=#c4a7e7";
+        double-hyphen-option = "fg=#c4a7e7";
+      };
+    };
 
     initContent = ''
       function zsh_greeting() {
