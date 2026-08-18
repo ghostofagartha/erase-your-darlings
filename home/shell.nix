@@ -5,42 +5,6 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting = { 
-      enable = true;
-      styles = {
-        # Main text
-      default = "fg=#e8dfe5";
-
-      # Commands
-      command = "fg=#e8dfe5";
-      builtin = "fg=#e8dfe5";
-      function = "fg=#e8dfe5";
-      alias = "fg=#e8dfe5";
-
-      # Arguments / values
-      arg0 = "fg=#e8dfe5";
-      arg1 = "fg=#e8dfe5";
-      arg2 = "fg=#e8dfe5";
-      arg3 = "fg=#e8dfe5";
-
-      # Paths
-      path = "fg=#e8dfe5";
-
-      # Options
-      single-hyphen-option = "fg=#d6b8c8";
-      double-hyphen-option = "fg=#d6b8c8";
-
-      # Strings
-      single-quoted-argument = "fg=#c9bec7";
-      double-quoted-argument = "fg=#c9bec7";
-
-      # Comments
-      comment = "fg=#6e6a86";
-
-      # Invalid commands — muted dusty rose instead of red
-      unknown-token = "fg=#c98f9d";
-      };
-    };
 
     initContent = ''
       function zsh_greeting() {
