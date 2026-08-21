@@ -163,7 +163,7 @@
       };
 
       theme = {
-        builtin = "Rosé Pine";
+        builtin = "Eldritch";
         templates = {
           enable_builtin_templates = false;
           enable_community_templates = false;
