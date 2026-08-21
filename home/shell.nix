@@ -11,4 +11,9 @@
       cdi = "zi";
     };
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }
