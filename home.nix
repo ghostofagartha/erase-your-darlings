@@ -7,7 +7,6 @@
     ./home/mpv.nix
     ./home/nvim.nix
     ./home/cursor.nix
-    ./home/shell.nix
     ./home/noctalia.nix
     ./home/packages.nix
   ];
