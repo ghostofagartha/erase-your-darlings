@@ -9,7 +9,10 @@
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "render" "video" ];
     hashedPassword = "$6$jMy.J1W64oPNZ6WG$ivJyoDSxPVtlKiUZ7/CDSgxdR0yjSryW1UXWeoCnIhxF.col/RCBAnbA18xd5Oa1ExP33jWhuH5kJ.b0wFHW81";
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   programs.git = {
     enable = true;
