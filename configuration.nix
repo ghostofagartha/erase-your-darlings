@@ -13,6 +13,7 @@
     ./system/nix-ld.nix
     ./system/networking.nix
     ./system/nix-settings.nix
+    ./system/virtualization.nix
 
     ./desktop/niri.nix
     ./desktop/sddm.nix
