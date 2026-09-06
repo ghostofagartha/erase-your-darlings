@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # Desktop
     foot
-    kdePackages.dolphin
+    nautilus
 
     # Documents
     libreoffice
