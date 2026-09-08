@@ -10,6 +10,9 @@
     libreoffice
     obsidian
 
+    # Coding
+    gcc
+
     # Internet
     whatsapp-electron
     ferdium
