@@ -12,7 +12,7 @@
 
     # Coding
     gcc
-    zeditor
+    zed
 
     # Internet
     whatsapp-electron
