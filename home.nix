@@ -5,7 +5,8 @@
     inputs.lazyvim.homeManagerModules.default
     inputs.noctalia.homeModules.default
     ./home/mpv.nix
-    # ./home/nvim.nix
+    ./home/nvim.nix
+    ./home/wine.nix
     ./home/cursor.nix
     ./home/shell.nix
     ./home/noctalia.nix
