@@ -11,6 +11,7 @@
     ./system/boot.nix
     ./system/users.nix
     ./system/nix-ld.nix
+    ./system/wine.nix
     ./system/networking.nix
     ./system/nix-settings.nix
     ./system/virtualization.nix
@@ -18,7 +19,6 @@
     ./desktop/niri.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
-    ./desktop/wine.nix
   ];
 
   time.timeZone = "Asia/Karachi";
