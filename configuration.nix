@@ -12,7 +12,6 @@
     ./system/users.nix
     ./system/fingerprint.nix
     ./system/nix-ld.nix
-    ./system/wine.nix
     ./system/networking.nix
     ./system/nix-settings.nix
     ./system/virtualization.nix
