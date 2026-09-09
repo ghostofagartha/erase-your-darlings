@@ -11,7 +11,6 @@
     tree
     starship
     btop
-    p7zip
     p7zip-rar
     ripgrep
     dust
