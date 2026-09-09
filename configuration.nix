@@ -18,6 +18,7 @@
     ./desktop/niri.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
+    ./desktop/wine.nix
   ];
 
   time.timeZone = "Asia/Karachi";
