@@ -11,7 +11,7 @@
     tree
     starship
     btop
-    p7zip
+    7zip
     ripgrep
     dust
     neovim
