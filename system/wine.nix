@@ -22,9 +22,6 @@
   environment.sessionVariables = {
     WINEPREFIX = "$HOME/.local/share/wineprefixes/default";
     WINEARCH = "win64";
-    
-    # if you don't need .NET or HTML rendering support right away
-    WINEDLLOVERRIDES = "mscoree,mshtml=d";
   };
 
   hardware.graphics = {
