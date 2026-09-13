@@ -18,7 +18,7 @@
     whatsapp-electron
     ferdium
     equibop
-    teams
+    teams-for-linux
     thunderbird
   ];
 }
