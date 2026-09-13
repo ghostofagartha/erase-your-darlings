@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     wineWow64Packages.stable
-    winePackages.font
+    winePackages.fonts
     winetricks
   ];
 
