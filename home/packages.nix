@@ -18,6 +18,7 @@
     whatsapp-electron
     ferdium
     equibop
+    teams
     thunderbird
   ];
 }
