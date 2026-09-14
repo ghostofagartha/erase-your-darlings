@@ -14,7 +14,7 @@
 
   programs = {
     direnv.enable = true;
-    nix-direnv.enable = true;
+    direnv.nix-direnv.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
