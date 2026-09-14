@@ -13,6 +13,7 @@
     # Coding
     gcc
     zed-editor
+    jetbrains.clion
 
     # Internet
     whatsapp-electron

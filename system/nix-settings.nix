@@ -12,8 +12,10 @@
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
+  programs = {
+    direnv.enable = true;
+    nix-direnv.enable = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
 }
