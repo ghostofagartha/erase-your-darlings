@@ -20,6 +20,7 @@
     ./desktop/niri.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
+    ./desktop/variables.nix
   ];
 
   time.timeZone = "Asia/Karachi";
