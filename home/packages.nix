@@ -17,6 +17,7 @@
 
     # Internet
     whatsapp-electron
+    qbittorrent
     ferdium
     equibop
     teams-for-linux
