@@ -18,6 +18,7 @@
 
     # Display
     xwayland
+    xwayland-satellite
 
     # Browser
     firefox
