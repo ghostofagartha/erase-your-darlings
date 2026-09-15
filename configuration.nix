@@ -10,7 +10,7 @@
     ./system/power.nix
     ./system/boot.nix
     ./system/users.nix
-    ./system/fingerprint.nix
+    # ./system/fingerprint.nix
     ./system/nix-ld.nix
     ./system/wine.nix
     ./system/networking.nix

@@ -16,6 +16,9 @@
     dust
     neovim
 
+    # Display
+    xwayland
+
     # Browser
     firefox
   ];
