@@ -7,6 +7,7 @@
     nautilus
 
     # Documents
+    libreoffice
     onlyoffice-desktopeditors
     obsidian
 
