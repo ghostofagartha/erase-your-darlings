@@ -15,7 +15,6 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd"
-      "/var/lib/fprint"
       "/var/lib/libvirt"
       "/var/db/sudo"
       "/var/cache"
