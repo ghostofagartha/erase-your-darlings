@@ -4,7 +4,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    loader.timeout = 10;
+    loader.timeout = 0;
     consoleLogLevel = 3;
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "acpi_call" ];
