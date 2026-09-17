@@ -5,6 +5,8 @@
     # Desktop
     foot
     nautilus
+    mpv
+    mpvpaper
 
     # Documents
     libreoffice
