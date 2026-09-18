@@ -30,7 +30,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-full"
+    "ventoy-1.1.17"
   ];
   nixpkgs.config.allowUnsupportedSystem = true;
 }
