@@ -29,7 +29,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    ventoy-full
+    "ventoy-full"
   ];
   nixpkgs.config.allowUnsupportedSystem = true;
 }
