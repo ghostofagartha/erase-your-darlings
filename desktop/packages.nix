@@ -15,6 +15,7 @@
     ripgrep
     dust
     neovim
+    ventoy-full
 
     # Display
     xwayland
