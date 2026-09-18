@@ -3,6 +3,7 @@
 {
   # --- Desktop ---
   services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
   programs.niri.enable = true;
   services.upower.enable = true;
 

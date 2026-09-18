@@ -17,7 +17,7 @@
     ./system/nix-settings.nix
     # ./system/virtualization.nix
 
-    ./desktop/niri.nix
+    ./desktop/desktop.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
     ./desktop/variables.nix
