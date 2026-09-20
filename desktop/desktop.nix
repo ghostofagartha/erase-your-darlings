@@ -5,6 +5,8 @@
   services.xserver.enable = true;
   programs.niri.enable = true;
   services.upower.enable = true;
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
 
   # --- Audio ---
   services.pipewire = {
