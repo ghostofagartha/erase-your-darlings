@@ -17,6 +17,9 @@
     neovim
     ventoy-full
 
+    # Desktop
+    gpu-screen-recorder
+
     # Display
     xwayland
     xwayland-satellite
