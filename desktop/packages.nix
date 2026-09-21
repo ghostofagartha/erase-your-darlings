@@ -1,6 +1,10 @@
 { pkgs, inputs, ... }:
 
 {
+  programs.gpu-screen-recorder = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     # Core Utilities
     git
