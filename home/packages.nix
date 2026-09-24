@@ -10,6 +10,7 @@
     libreoffice
     onlyoffice-desktopeditors
     obsidian
+    cherrytree
 
     # Coding
     gcc
