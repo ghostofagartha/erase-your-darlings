@@ -5,6 +5,7 @@
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
   programs.niri.enable = true;
+  services.displayManager.defaultSession = "plasma6";
   services.upower.enable = true;
   services.udisks2.enable = true;
   services.gvfs.enable = true;
