@@ -18,6 +18,7 @@
     # Internet
     whatsapp-electron
     qbittorrent
+    ferdium
     google-chrome
     equibop
     teams-for-linux
