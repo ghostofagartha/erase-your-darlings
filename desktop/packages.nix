@@ -17,6 +17,8 @@
     btop
     p7zip-rar
     ripgrep
+    ntfs2g
+    exfat
     dust
     neovim
     ventoy-full
