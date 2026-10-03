@@ -17,7 +17,7 @@
     btop
     p7zip-rar
     ripgrep
-    ntfs2g
+    ntfs3g
     exfat
     dust
     neovim
