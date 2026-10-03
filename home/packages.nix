@@ -11,6 +11,10 @@
     obsidian
     cherrytree
 
+    # Games
+    steam
+    steam-run
+
     # Coding
     gcc
     zed-editor
