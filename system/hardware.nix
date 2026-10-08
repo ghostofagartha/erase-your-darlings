@@ -7,7 +7,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      intel-compute-runtime-legacy1
+      # intel-compute-runtime-legacy1
     ];
   };
 }
