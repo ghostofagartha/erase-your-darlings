@@ -14,7 +14,7 @@
   # 2. ENABLE THROTTLED (Overrides the hardware limits to pull 25W+ continuously)
   services.throttled = {
     enable = true;
-    settings = {
+    extraConfig = "
       GENERAL = {
         Sysfs_Power_Path = "/sys/class/power_supply/AC*/online";
       };
@@ -39,6 +39,6 @@
         CACHE = -80; # Note: Core and Cache offsets must align perfectly
         GPU = -40;
       };
-    };
+    ";
   };
 }
