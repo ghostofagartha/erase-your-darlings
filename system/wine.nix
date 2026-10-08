@@ -24,8 +24,4 @@
     WINEPREFIX = "$HOME/.local/share/wineprefixes/default";
     WINEARCH = "win64";
   };
-
-  hardware.graphics = {
-    enable = true;
-  };
 }
