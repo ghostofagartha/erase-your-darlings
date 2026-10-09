@@ -3,7 +3,10 @@
 
   # Inputs
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,6 +28,7 @@
         { nixpkgs.hostPlatform = "x86_64-linux"; }
         ./configuration.nix
         home-manager.nixosModules.home-manager
+        niri.nixosModules.niri
         {
           home-manager = {
             useGlobalPkgs = true;

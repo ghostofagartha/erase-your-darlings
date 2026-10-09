@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 
+# Requires sodiboo/niri-flake (niri.nixosModules.niri, or the home-manager module)
+# so that `programs.niri.settings` exists.
 let
   sh = cmd: { spawn-sh = cmd; };
 
+  # Mod+1..9 -> focus workspace, Mod+Ctrl+1..9 -> move column to workspace
   workspaceBinds = lib.listToAttrs (lib.concatMap (i:
     let n = toString i; in [
       { name = "Mod+${n}";      value.action.focus-workspace = i; }
@@ -96,12 +99,8 @@ in
 
     # ── Window rules ─────────────────────────────────────────────────────
     window-rules = [
-      # Global (no match)
-      {
-        # NOTE: background-effect is very new; if niri-flake doesn't type it
-        # yet, see the fallback note at the bottom.
-        background-effect = { blur = false; xray = false; };
-      }
+      # Removed: global background-effect { blur false; xray false; }
+      # (not supported by the pinned niri-flake yet)
       {
         matches = [ { app-id = ''^org\.wezfurlong\.wezterm$''; } ];
         default-column-width = { };
@@ -141,14 +140,9 @@ in
         matches = [ { namespace = "^noctalia-backdrop"; } ];
         place-within-backdrop = true;
       }
-      {
-        matches = [ { namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"; } ];
-        background-effect.xray = false;
-      }
-      {
-        matches = [ { namespace = "noctalia-window-switcher"; } ];
-        background-effect = { blur = false; xray = false; };
-      }
+      # Removed (background-effect not supported by the pinned niri-flake yet):
+      #   namespace "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$" -> xray false
+      #   namespace "noctalia-window-switcher" -> blur false, xray false
     ];
 
     # ── Debug ────────────────────────────────────────────────────────────
@@ -267,11 +261,9 @@ in
   };
 
   # ── Fallback ───────────────────────────────────────────────────────────
-  # If niri-flake rejects a newer option (background-effect, spawn-sh,
-  # place-within-backdrop, ...), the simplest reproducible escape hatch is to
-  # drop `programs.niri.settings` above and ship the KDL verbatim instead:
+  # If niri-flake rejects another newer option (spawn-sh, place-within-backdrop,
+  # ...), the simplest reproducible escape hatch is to drop
+  # `programs.niri.settings` above and ship the KDL verbatim instead:
   #
   #   programs.niri.config = builtins.readFile ./config.kdl;
-  #
-  # (or, with plain home-manager: xdg.configFile."niri/config.kdl".source = ./config.kdl;)
 }
