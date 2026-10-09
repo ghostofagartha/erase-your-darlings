@@ -4,6 +4,7 @@
   imports = [
     inputs.lazyvim.homeManagerModules.default
     inputs.noctalia.homeModules.default
+    ./home/niri.nix
     ./home/mpv.nix
     ./home/nvim.nix
     ./home/cursor.nix
