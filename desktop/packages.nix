@@ -11,6 +11,7 @@
     eza
     zoxide
     yazi
+    ntfs3g
     fastfetch
     tree
     starship
