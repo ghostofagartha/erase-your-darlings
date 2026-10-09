@@ -17,7 +17,7 @@
     lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, noctalia, lazyvim, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, niri, noctalia, lazyvim, ... }@inputs: {
     nixosConfigurations.Phantom = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 
