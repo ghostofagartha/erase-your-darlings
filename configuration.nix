@@ -15,7 +15,7 @@
     ./system/wine.nix
     ./system/networking.nix
     ./system/nix-settings.nix
-    # ./system/virtualization.nix
+    ./system/virtualization.nix
 
     ./desktop/desktop.nix
     ./desktop/sddm.nix
