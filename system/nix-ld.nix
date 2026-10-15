@@ -7,5 +7,11 @@
     zlib
     glibc
     libx11
+    fontconfig
+    freetype
+    libXi
+    libXrender
+    libXtst
+    libXext
   ];
 }
