@@ -5,6 +5,7 @@
     # Desktop
     foot
     nautilus
+    localsend
 
     # Documents
     onlyoffice-desktopeditors
