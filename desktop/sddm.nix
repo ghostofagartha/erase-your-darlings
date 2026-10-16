@@ -2,7 +2,7 @@
 
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {
-    embeddedTheme = "black_hole";
+    embeddedTheme = "pixel_sakura";
     themeConfig = {
       HeaderTextColor = "#d5c4a1";
     };
