@@ -258,10 +258,9 @@ in
     } // workspaceBinds;
   };
 
-  # ── Fallback ───────────────────────────────────────────────────────────
-  # If niri-flake rejects another newer option (spawn-sh, place-within-backdrop,
-  # ...), the simplest reproducible escape hatch is to drop
-  # `programs.niri.settings` above and ship the KDL verbatim instead:
-  #
-  #   programs.niri.config = builtins.readFile ./config.kdl;
+  programs.niri.config = ''
+    recent-windows {
+        off
+    }
+  '';
 }
