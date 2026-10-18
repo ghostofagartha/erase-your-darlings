@@ -81,7 +81,7 @@ in
 
     # ── Misc ─────────────────────────────────────────────────────────────
     prefer-no-csd = true;
-    recent-windows.off = null;
+    recent-windows._props = [ "off" ];
 
     spawn-at-startup = [
       { command = [ "noctalia" ]; }
