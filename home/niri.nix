@@ -158,6 +158,7 @@ in
       "Mod+Space".action      = sh "noctalia msg panel-toggle launcher";
       "Mod+S".action          = sh "noctalia msg panel-toggle control-center";
       "Mod+Tab".action        = sh "noctalia msg window-switcher";
+      "Alt+Tab".action        = sh "noctalia msg window-switcher";
       "Mod+Ctrl+Alt+R".action = sh "pkill noctalia && noctalia -d";
       "Mod+Ctrl+S".action     = sh "noctalia msg settings-toggle [context]";
       "Mod+B".action          = sh "noctalia msg bar-toggle";
