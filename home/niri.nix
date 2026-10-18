@@ -68,8 +68,6 @@ in
         urgent.color = "#9b0000";
       };
 
-      # No `on` in your KDL, so niri treats the shadow as disabled.
-      # Flip `enable` to true if you actually want it.
       shadow = {
         enable = false;
         softness = 30;
@@ -83,6 +81,7 @@ in
 
     # ── Misc ─────────────────────────────────────────────────────────────
     prefer-no-csd = true;
+    recent-windows.off = null;
 
     spawn-at-startup = [
       { command = [ "noctalia" ]; }
