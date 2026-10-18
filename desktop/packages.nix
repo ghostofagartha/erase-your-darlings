@@ -20,7 +20,6 @@
     ripgrep
     dust
     neovim
-    ventoy-full
 
     # Desktop
     gpu-screen-recorder
@@ -38,7 +37,6 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.17"
   ];
   nixpkgs.config.allowUnsupportedSystem = true;
 }
