@@ -38,7 +38,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.12"
+    "ventoy-1.1.18"
   ];
   nixpkgs.config.allowUnsupportedSystem = true;
 }
