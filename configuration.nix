@@ -17,8 +17,6 @@
     ./system/nix-settings.nix
     ./system/virtualization.nix
 
-    ./ai/llm.nix
-
     ./desktop/desktop.nix
     ./desktop/sddm.nix
     ./desktop/packages.nix
