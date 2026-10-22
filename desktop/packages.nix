@@ -22,6 +22,9 @@
     neovim
     ventoy
 
+    # DBS
+    dbeaver-bin
+
     # Desktop
     gpu-screen-recorder
 
