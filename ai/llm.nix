@@ -1,15 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, ... }: {
 
-{
   services.ollama = {
     enable = true;
-    acceleration = null; 
+    package = pkgs.ollama; 
   };
 
   environment.persistence."/persistent" = {
     hideMounts = true;
     directories = [
-      "/var/lib/ollama"
+      "/var/lib/ollama" # Stores your downloaded 2GB+ model files directly on NVMe
     ];
   };
+
 }
