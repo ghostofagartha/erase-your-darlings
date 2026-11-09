@@ -24,6 +24,7 @@
 
     # DBS
     dbeaver-bin
+    sqldeveloper
 
     # Desktop
     gpu-screen-recorder
