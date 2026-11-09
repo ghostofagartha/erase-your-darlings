@@ -15,6 +15,8 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd"
+      "/var/lib/ollama"
+      "/var/lib/docker"
       # "/var/lib/libvirt"
       "/var/db/sudo"
       "/var/cache"
