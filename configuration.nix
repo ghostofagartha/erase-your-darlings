@@ -18,6 +18,7 @@
     ./system/virtualization.nix
 
     # ./ai/llm.nix
+    ./ruby.nix
 
     ./desktop/desktop.nix
     ./desktop/sddm.nix
