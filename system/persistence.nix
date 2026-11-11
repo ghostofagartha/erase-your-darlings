@@ -21,6 +21,7 @@
       "/var/db/sudo"
       "/var/cache"
       "/home/aori"
+      "/home/ruby"
     ];
     files = [
       "/etc/machine-id"

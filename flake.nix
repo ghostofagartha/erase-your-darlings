@@ -30,7 +30,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.aori = import ./home.nix;
+            users.ruby = import ./home.nix;
             backupFileExtension = "backup";
             extraSpecialArgs = { inherit inputs; };
           };

@@ -4,7 +4,7 @@
   users.mutableUsers = false;
   users.users.root.hashedPassword = "$6$HySaGf2KB17VfMyh$XWGXqB.EQRszz/aE.okOvafbdVViKGSxeevy7ARhlDE/8ayGKaeU0Knvxhkpdvn.AwLatxwHatY1SOU2fSAAd0";
 
-  users.users.aori = {
+  users.users.ruby = {
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "render" "video" "docker" ];
