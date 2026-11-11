@@ -14,8 +14,8 @@
   ];
 
   # Home Settings
-  home.username = "ruby";
-  home.homeDirectory = "/home/ruby";
+  home.username = "aori";
+  home.homeDirectory = "/home/aori";
   home.stateVersion = "26.05";
   home.sessionVariables = {
     EDITOR = "nvim";
