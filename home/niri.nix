@@ -56,7 +56,7 @@ in
 
       focus-ring = {
         width = 1;
-        active.color = "#c4a7e7";
+        active.color = "#8b0000";
         inactive.color = "#505050";
       };
 
@@ -84,8 +84,6 @@ in
 
     spawn-at-startup = [
       { command = [ "noctalia" ]; }
-      # Recent niri-flake versions manage xwayland-satellite for you;
-      # remove this line if you see two instances.
       { command = [ "xwayland-satellite" ]; }
     ];
 
