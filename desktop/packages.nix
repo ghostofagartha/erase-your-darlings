@@ -20,9 +20,11 @@
     ripgrep
     dust
     neovim
+    efibootmgr
 
     # Desktop
     gpu-screen-recorder
+    evtest
 
     # Display
     xwayland
