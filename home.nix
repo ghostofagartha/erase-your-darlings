@@ -14,8 +14,8 @@
   ];
 
   # Home Settings
-  home.username = "mina";
-  home.homeDirectory = "/home/mina";
+  home.username = "aori";
+  home.homeDirectory = "/home/aori";
   home.stateVersion = "26.05";
   home.sessionVariables = {
     EDITOR = "nvim";
