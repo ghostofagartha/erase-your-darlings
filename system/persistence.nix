@@ -21,6 +21,7 @@
       "/var/db/sudo"
       "/var/cache"
       "/home/aori"
+      "/home/mina"
     ];
     files = [
       "/etc/machine-id"
