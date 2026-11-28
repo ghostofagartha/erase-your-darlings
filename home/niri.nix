@@ -1,3 +1,270 @@
+# { config, lib, pkgs, ... }:
+#
+# # Requires sodiboo/niri-flake (niri.nixosModules.niri, or the home-manager module)
+# # so that `programs.niri.settings` exists.
+# let
+#   sh = cmd: { spawn-sh = cmd; };
+#
+#   # Mod+1..9 -> focus workspace, Mod+Ctrl+1..9 -> move column to workspace
+#   workspaceBinds = lib.listToAttrs (lib.concatMap (i:
+#     let n = toString i; in [
+#       { name = "Mod+${n}";      value.action.focus-workspace = i; }
+#       { name = "Mod+Ctrl+${n}"; value.action.move-column-to-workspace = i; }
+#     ]) (lib.range 1 9));
+#
+#   radius = 10.0;
+# in
+# {
+#   programs.niri.settings = {
+#
+#     # ── Input ────────────────────────────────────────────────────────────
+#     input = {
+#       focus-follows-mouse.enable = true;
+#       warp-mouse-to-focus.enable = true;
+#
+#       keyboard.xkb.layout = "gb";
+#
+#       touchpad = {
+#         tap = true;
+#         natural-scroll = true;
+#       };
+#
+#       mouse = { };
+#       trackpoint = { };
+#     };
+#
+#     # ── Display ──────────────────────────────────────────────────────────
+#     outputs."eDP-1" = {
+#       mode = { width = 1920; height = 1080; refresh = 60.0; };
+#       scale = 1.0;
+#       transform.rotation = 0;
+#       position = { x = 1280; y = 0; };
+#     };
+#
+#     # ── Layout ───────────────────────────────────────────────────────────
+#     layout = {
+#       gaps = 16;
+#       center-focused-column = "never";
+#
+#       preset-column-widths = [
+#         { proportion = 0.33333; }
+#         { proportion = 0.5; }
+#         { proportion = 0.66667; }
+#       ];
+#
+#       default-column-width = { proportion = 0.5; };
+#
+#       focus-ring = {
+#         width = 1;
+#         active.color = "#8b0000";
+#         inactive.color = "#505050";
+#       };
+#
+#       border = {
+#         enable = false; # `off` in the KDL
+#         width = 4;
+#         active.color = "#ffc87f";
+#         inactive.color = "#505050";
+#         urgent.color = "#9b0000";
+#       };
+#
+#       shadow = {
+#         enable = false;
+#         softness = 30;
+#         spread = 5;
+#         offset = { x = 0; y = 5; };
+#         color = "#0007";
+#       };
+#
+#       struts = { };
+#     };
+#
+#     # ── Misc ─────────────────────────────────────────────────────────────
+#     prefer-no-csd = true;
+#
+#     spawn-at-startup = [
+#       { command = [ "noctalia" ]; }
+#       { command = [ "xwayland-satellite" ]; }
+#     ];
+#
+#     hotkey-overlay.skip-at-startup = true;
+#
+#     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+#
+#     animations = { };
+#
+#     # ── Window rules ─────────────────────────────────────────────────────
+#     window-rules = [
+#       # Removed: global background-effect { blur false; xray false; }
+#       # (not supported by the pinned niri-flake yet)
+#       {
+#         matches = [ { app-id = ''^org\.wezfurlong\.wezterm$''; } ];
+#         default-column-width = { };
+#       }
+#       {
+#         geometry-corner-radius = {
+#           top-left = radius;
+#           top-right = radius;
+#           bottom-left = radius;
+#           bottom-right = radius;
+#         };
+#         clip-to-geometry = true;
+#       }
+#       {
+#         matches = [ { app-id = "dev.noctalia.Noctalia"; } ];
+#         open-floating = true;
+#         default-column-width = { fixed = 1080; };
+#         default-window-height = { fixed = 920; };
+#       }
+#       {
+#         matches = [ { app-id = "firefox$"; title = "^Picture-in-Picture$"; } ];
+#         open-floating = true;
+#       }
+#       # Disabled in your KDL (`/-window-rule`), kept here for reference:
+#       # {
+#       #   matches = [
+#       #     { app-id = ''^org\.keepassxc\.KeePassXC$''; }
+#       #     { app-id = ''^org\.gnome\.World\.Secrets$''; }
+#       #   ];
+#       #   block-out-from = "screen-capture";
+#       # }
+#     ];
+#
+#     # ── Layer rules ──────────────────────────────────────────────────────
+#     layer-rules = [
+#       {
+#         matches = [ { namespace = "^noctalia-backdrop"; } ];
+#         place-within-backdrop = true;
+#       }
+#       # Removed (background-effect not supported by the pinned niri-flake yet):
+#       #   namespace "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$" -> xray false
+#       #   namespace "noctalia-window-switcher" -> blur false, xray false
+#     ];
+#
+#     # ── Debug ────────────────────────────────────────────────────────────
+#     debug.honor-xdg-activation-with-invalid-serial = [ ];
+#
+#     # ── Binds ────────────────────────────────────────────────────────────
+#     binds = {
+#       # Applications
+#       "Mod+T" = { hotkey-overlay.title = "Open a Terminal: foot";      action.spawn = "foot"; };
+#       "Mod+W" = { hotkey-overlay.title = "Open a Browser: firefox";    action.spawn = "firefox"; };
+#       "Mod+E" = { hotkey-overlay.title = "Open a File Explorer: yazi"; action = sh "foot -e yazi"; };
+#       "Super+Alt+L" = { hotkey-overlay.title = "Lock the Screen"; action = sh "noctalia msg session lock"; };
+#
+#       # Noctalia shell
+#       "Mod+Space".action      = sh "noctalia msg panel-toggle launcher";
+#       "Mod+S".action          = sh "noctalia msg panel-toggle control-center";
+#       "Mod+Tab".action        = sh "noctalia msg window-switcher";
+#       "Alt+Tab".action        = sh "noctalia msg window-switcher";
+#       "Mod+Ctrl+Alt+R".action = sh "pkill noctalia && noctalia -d";
+#       "Mod+Ctrl+S".action     = sh "noctalia msg settings-toggle [context]";
+#       "Mod+B".action          = sh "noctalia msg bar-toggle";
+#       "Mod+V".action          = sh "noctalia msg panel-toggle clipboard";
+#       "Mod+N".action          = sh "noctalia msg panel-toggle control-center notifications";
+#       "Mod+Shift+N".action    = sh "noctalia msg notification-clear-active";
+#       "Ctrl+Alt+C".action     = sh "noctalia msg notification-clear-history";
+#
+#       # Volume
+#       "XF86AudioRaiseVolume".action = sh "noctalia msg volume-up";
+#       "XF86AudioLowerVolume".action = sh "noctalia msg volume-down";
+#       "XF86AudioMute".action        = sh "noctalia msg volume-mute";
+#       "XF86AudioMicMute" = { allow-when-locked = true; action = sh "noctalia msg mic-mute"; };
+#
+#       # Media
+#       "Mod+Ctrl+Space" = { allow-when-locked = true; action = sh "noctalia msg media toggle"; };
+#       "Mod+Ctrl+P"     = { allow-when-locked = true; action = sh "noctalia msg media previous"; };
+#       "Mod+Ctrl+N"     = { allow-when-locked = true; action = sh "noctalia msg media next"; };
+#
+#       # Brightness
+#       "XF86MonBrightnessUp".action   = sh "noctalia msg brightness-up";
+#       "XF86MonBrightnessDown".action = sh "noctalia msg brightness-down";
+#
+#       "Mod+O" = { repeat = false; action.toggle-overview = [ ]; };
+#       "Mod+Q" = { repeat = false; action.close-window = [ ]; };
+#
+#       # Focus
+#       "Mod+Left".action  = { focus-column-left = [ ]; };
+#       "Mod+Down".action  = { focus-window-down = [ ]; };
+#       "Mod+Up".action    = { focus-window-up = [ ]; };
+#       "Mod+Right".action = { focus-column-right = [ ]; };
+#
+#       "Mod+H".action = { focus-column-left = [ ]; };
+#       "Mod+J".action = { focus-window-down = [ ]; };
+#       "Mod+K".action = { focus-window-up = [ ]; };
+#       "Mod+L".action = { focus-column-right = [ ]; };
+#
+#       # Move
+#       "Mod+Ctrl+Left".action  = { move-column-left = [ ]; };
+#       "Mod+Ctrl+Down".action  = { move-window-down = [ ]; };
+#       "Mod+Ctrl+Up".action    = { move-window-up = [ ]; };
+#       "Mod+Ctrl+Right".action = { move-column-right = [ ]; };
+#
+#       "Mod+Ctrl+H".action = { move-column-left = [ ]; };
+#       "Mod+Ctrl+J".action = { move-window-down = [ ]; };
+#       "Mod+Ctrl+K".action = { move-window-up = [ ]; };
+#       "Mod+Ctrl+L".action = { move-column-right = [ ]; };
+#
+#       "Mod+Home".action      = { focus-column-first = [ ]; };
+#       "Mod+End".action       = { focus-column-last = [ ]; };
+#       "Mod+Ctrl+Home".action = { move-column-to-first = [ ]; };
+#       "Mod+Ctrl+End".action  = { move-column-to-last = [ ]; };
+#
+#       # Workspaces (relative)
+#       "Mod+Page_Down".action      = { focus-workspace-down = [ ]; };
+#       "Mod+Page_Up".action        = { focus-workspace-up = [ ]; };
+#       "Mod+U".action              = { focus-workspace-down = [ ]; };
+#       "Mod+I".action              = { focus-workspace-up = [ ]; };
+#       "Mod+Ctrl+Page_Down".action = { move-column-to-workspace-down = [ ]; };
+#       "Mod+Ctrl+Page_Up".action   = { move-column-to-workspace-up = [ ]; };
+#       "Mod+Ctrl+U".action         = { move-column-to-workspace-down = [ ]; };
+#       "Mod+Ctrl+I".action         = { move-column-to-workspace-up = [ ]; };
+#
+#       # Columns
+#       "Mod+BracketLeft".action  = { consume-or-expel-window-left = [ ]; };
+#       "Mod+BracketRight".action = { consume-or-expel-window-right = [ ]; };
+#       "Mod+Comma".action        = { consume-window-into-column = [ ]; };
+#       "Mod+Period".action       = { expel-window-from-column = [ ]; };
+#
+#       "Mod+R".action       = { switch-preset-column-width = [ ]; };
+#       "Mod+Shift+R".action = { switch-preset-column-width-back = [ ]; };
+#
+#       "Mod+F".action       = { maximize-column = [ ]; };
+#       "Mod+Shift+F".action = { fullscreen-window = [ ]; };
+#       "Mod+M".action       = { maximize-window-to-edges = [ ]; };
+#
+#       "Mod+C".action      = { center-column = [ ]; };
+#       "Mod+Ctrl+C".action = { center-visible-columns = [ ]; };
+#
+#       "Mod+Minus".action = { set-column-width = "-10%"; };
+#       "Mod+Equal".action = { set-column-width = "+10%"; };
+#
+#       "Mod+Shift+Minus".action = { set-window-height = "-10%"; };
+#       "Mod+Shift+Equal".action = { set-window-height = "+10%"; };
+#
+#       "Mod+Alt+Space".action      = { toggle-window-floating = [ ]; };
+#       "Mod+Alt+Ctrl+Space".action = { switch-focus-between-floating-and-tiling = [ ]; };
+#
+#       # Screenshots
+#       "Print".action      = sh "noctalia msg screenshot-region";
+#       "Ctrl+Print".action = { screenshot-screen = [ ]; };
+#       "Alt+Print".action  = sh "noctalia msg screenshot-fullscreen";
+#
+#       # System
+#       "Mod+Escape" = { allow-inhibiting = false; action.toggle-keyboard-shortcuts-inhibit = [ ]; };
+#       "Ctrl+Alt+Delete".action = sh "noctalia msg panel-toggle session";
+#       "Mod+Shift+P".action     = { power-off-monitors = [ ]; };
+#     } // workspaceBinds;
+#   };
+#
+#   # ── Fallback ───────────────────────────────────────────────────────────
+#   # If niri-flake rejects another newer option (spawn-sh, place-within-backdrop,
+#   # ...), the simplest reproducible escape hatch is to drop
+#   # `programs.niri.settings` above and ship the KDL verbatim instead:
+#   #
+#   #   programs.niri.config = builtins.readFile ./config.kdl;
+# }
+
 { config, lib, pkgs, ... }:
 
 # Requires sodiboo/niri-flake (niri.nixosModules.niri, or the home-manager module)
@@ -13,6 +280,25 @@ let
     ]) (lib.range 1 9));
 
   radius = 10.0;
+
+  # Binds that keep working in Niri even while the Arch/Hyprland window
+  # has grabbed the keyboard. Everything else goes to Hyprland.
+  alwaysOn = [
+    # focus other windows
+    "Mod+Left" "Mod+Down" "Mod+Up" "Mod+Right"
+    "Mod+H" "Mod+J" "Mod+K" "Mod+L"
+    "Mod+Tab" "Alt+Tab"
+    "Mod+Page_Down" "Mod+Page_Up" "Mod+U" "Mod+I"
+    "Mod+O"
+    # hardware keys
+    "XF86AudioRaiseVolume" "XF86AudioLowerVolume" "XF86AudioMute" "XF86AudioMicMute"
+    "XF86MonBrightnessUp" "XF86MonBrightnessDown"
+    "Print" "Ctrl+Print" "Alt+Print"
+    "Ctrl+Alt+Delete" "Super+Alt+L"
+  ];
+
+  markAlwaysOn = name: bind:
+    bind // lib.optionalAttrs (lib.elem name alwaysOn) { allow-inhibiting = false; };
 in
 {
   programs.niri.settings = {
@@ -145,7 +431,9 @@ in
     debug.honor-xdg-activation-with-invalid-serial = [ ];
 
     # ── Binds ────────────────────────────────────────────────────────────
-    binds = {
+    # Binds listed in `alwaysOn` get allow-inhibiting = false, so they keep
+    # working in Niri while the Arch (Hyprland) window holds the keyboard.
+    binds = lib.mapAttrs markAlwaysOn ({
       # Applications
       "Mod+T" = { hotkey-overlay.title = "Open a Terminal: foot";      action.spawn = "foot"; };
       "Mod+W" = { hotkey-overlay.title = "Open a Browser: firefox";    action.spawn = "firefox"; };
@@ -254,7 +542,7 @@ in
       "Mod+Escape" = { allow-inhibiting = false; action.toggle-keyboard-shortcuts-inhibit = [ ]; };
       "Ctrl+Alt+Delete".action = sh "noctalia msg panel-toggle session";
       "Mod+Shift+P".action     = { power-off-monitors = [ ]; };
-    } // workspaceBinds;
+    } // workspaceBinds);
   };
 
   # ── Fallback ───────────────────────────────────────────────────────────
